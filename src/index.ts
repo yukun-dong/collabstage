@@ -63,3 +63,20 @@ server.post("/api/messages", async (req, res) => {
     await linkUnfurlingApp.run(context);
   });
 });
+
+server.get("/tab", async (req, res) => {
+  const body = `<!DOCTYPE html>
+  <html lang="en">
+  
+  <div class="text-center">
+    <h1 class="display-4">Tab in stage View</h1>
+  </div>
+  
+  </html>`;
+  res.writeHead(200, {
+    'Content-Length': Buffer.byteLength(body),
+    'Content-Type': 'text/html'
+  });
+  res.write(body);
+  res.end();
+});

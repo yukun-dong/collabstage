@@ -61,7 +61,22 @@
         }
     ],
     "configurableTabs": [],
-    "staticTabs": [],
+        "staticTabs": [
+        {
+            "entityId": "stageViewTask",
+            "name": "Stage View",
+            "contentUrl": "https://${{BOT_DOMAIN}}/tab",
+            "websiteUrl": "https://${{BOT_DOMAIN}}/tab",
+            "searchUrl": "https://${{BOT_DOMAIN}}/tab",
+            "scopes": [
+                "personal"
+            ],
+            "context": [
+                "personalTab",
+                "channelTab"
+            ]
+        }
+    ],
     "permissions": [
         "identity",
         "messageTeamMembers"

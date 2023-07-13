@@ -6,6 +6,7 @@ import {
   AppBasedLinkQuery,
 } from "botbuilder";
 import helloWorldCard from "./adaptiveCards/helloWorldCard.json";
+import { AdaptiveCards } from "@microsoft/adaptivecards-tools";
 
 export class LinkUnfurlingApp extends TeamsActivityHandler {
   // Link Unfurling.
@@ -19,7 +20,12 @@ export class LinkUnfurlingApp extends TeamsActivityHandler {
       "https://raw.githubusercontent.com/microsoft/botframework-sdk/master/icon.png",
     ]);
 
-    const attachment = { ...CardFactory.adaptiveCard(helloWorldCard), preview: previewCard };
+    const data = { url: process.env.BOT_DOMAIN, appId: process.env.TEAMS_APP_ID };
+
+    const renderedCard = AdaptiveCards.declare(helloWorldCard).render(data);
+
+    const attachment = { ...CardFactory.adaptiveCard(renderedCard), preview: previewCard };
+
 
     return {
       composeExtension: {

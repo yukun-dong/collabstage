@@ -33,11 +33,22 @@
             ]
         }
     ],
-    "actions": [
+"actions": [
         {
-          "type": "Action.OpenUrl",
-          "title": "Link Unfurling Docs",
-          "url": "https://learn.microsoft.com/en-us/microsoftteams/platform/messaging-extensions/how-to/link-unfurling"
+            "type": "Action.Submit",
+            "title": "View Via card",
+            "data":{
+                "msteams": {
+                    "type": "invoke",
+                    "value": {
+                        "type": "tab/tabInfoAction",
+                        "tabInfo": {
+                            "contentUrl": "https://${url}/tab",
+                            "websiteUrl": "https://${url}/tab"
+                        }
+                    }
+                }
+            }
         }
       ],
     "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
